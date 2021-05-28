@@ -1,20 +1,20 @@
-/*******************************************************************************
+/***************************************************************************************
 * Beautify Text Table 2
 *
 * @author Corin Langosch (info@netskin.com)
 * v1.0  (2011/04/05)
 * @author Marcelo Gennari (margenn@gmail.com)
-* v2.0  (2021/05/26) +showOptionDialog +StringBuilder(faster) +metrics
+* v2.0  (2021/05/26) +showOptionDialog +StringBuilder(faster) +integrityCheck +metrics 
 *
-*   |Corin|Langosch|info@netskin.com
-*   |Marcelo|Gennari|margenn@gmail.com
+*   Corin|Langosch|info@netskin.com
+*   Marcelo|Gennari|margenn@gmail.com
 *
 * becomes
 *
-*   | Corin   | Langosch | info@netskin.com
-*   | Marcelo | Gennari  | margenn@gmail.com
+*   Corin   | Langosch | info@netskin.com
+*   Marcelo | Gennari  | margenn@gmail.com
 *
-*******************************************************************************/
+***************************************************************************************/
 
 void showDialog() {
 	String[] options = new String[] {"Comma (,)", "Pipe (|)", "Semicolon (;)", "Tab"};

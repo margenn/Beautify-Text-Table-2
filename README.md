@@ -2,6 +2,17 @@
 
 This macro aligns character-separated text.
 
+It is a upgraded version of the original "Beautify Text Table".
+     
+     
+### Improvements:
+     
+     
+- Dialog box. Allows the user to choose the correct separator.
+- String concatenation replaced by StringBuilder. Faster.
+- Checking the same number of columns across the entire selection before applying changes. Avoids previous NPC exceptions.
+- Metrics. Warns if a odd line has been found. Indicates the line number and its quantity of columns.
+- Metrics. Execution time.
 
 
 ![BeautifyText2](https://user-images.githubusercontent.com/8531218/160283549-343f93c0-022f-4e12-b29b-4d6b5c5ce72d.gif)

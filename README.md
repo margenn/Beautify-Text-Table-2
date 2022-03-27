@@ -3,6 +3,11 @@
 This macro aligns character-separated text.
 
 
+
+![BeautifyText2](https://user-images.githubusercontent.com/8531218/160283549-343f93c0-022f-4e12-b29b-4d6b5c5ce72d.gif)
+
+
+
 ### Installation:
 
 

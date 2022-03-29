@@ -1,20 +1,20 @@
-/***************************************************************************************
+/*******************************************************************************
 * Beautify Text Table 2
 *
 * @author Corin Langosch (info@netskin.com)
 * v1.0  (2011/04/05)
 * @author Marcelo Gennari (margenn@gmail.com)
-* v2.0  (2021/05/26) +showOptionDialog +StringBuilder(faster) +integrityCheck +metrics 
+* v2.1  (2022/03/28) +showOptionDialog +StringBuilder(faster) +metrics
 *
-*   Corin|Langosch|info@netskin.com
-*   Marcelo|Gennari|margenn@gmail.com
+*   |Corin|Langosch|info@netskin.com
+*   |Marcelo|Gennari|margenn@gmail.com
 *
 * becomes
 *
-*   Corin   | Langosch | info@netskin.com
-*   Marcelo | Gennari  | margenn@gmail.com
+*   | Corin   | Langosch | info@netskin.com
+*   | Marcelo | Gennari  | margenn@gmail.com
 *
-***************************************************************************************/
+*******************************************************************************/
 
 void showDialog() {
 	String[] options = new String[] {"Comma (,)", "Pipe (|)", "Semicolon (;)", "Tab"};
@@ -39,7 +39,16 @@ void beautifyTextTable(separator) {
 	long startTime = System.nanoTime();
 	int firstLineColumns; String msg;
 	String chrRegex = ("|".indexOf(separator) >= 0) ? "\\" + separator : separator;
-	String text = textArea.getSelectedText();
+	String text = null;
+	if (textArea.getSelectedText() != null) {
+		text = textArea.getSelectedText();
+	} else {
+		int userChoice = Macros.confirm(view, "Proceed to ALL text?", JOptionPane.YES_NO_OPTION);
+		if (userChoice == JOptionPane.YES_OPTION) {
+			text = textArea.getText();
+		}
+	}
+
 	if (text == null) { return; }
 	// Get all text into an array
 	String[] lines = text.split("\\r?\\n");
@@ -110,7 +119,12 @@ void beautifyTextTable(separator) {
 		}
 		sb.append(lineSeparator);
 	}
-	textArea.setSelectedText(sb.toString());
+
+	if (textArea.getSelectedText() != null) {
+		textArea.setSelectedText(sb.toString());
+	} else {
+		textArea.setText(sb.toString());
+	}
 
 	long endTime = System.nanoTime();
 	long totalTime = (endTime - startTime) / 1000000;

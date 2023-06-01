@@ -32,7 +32,7 @@ jedit
 │
 └───macros
     │
-    └───text (on any other of your preference)
+    └───misc (on any other of your preference)
         │   Beautify_Table.bsh
         │   ...
 ```

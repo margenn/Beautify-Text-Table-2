@@ -39,6 +39,7 @@ void beautifyTextTable(separator) {
 	long startTime = System.nanoTime();
 	int firstLineColumns; String msg;
 	String chrRegex = ("|".indexOf(separator) >= 0) ? "\\" + separator : separator;
+	String checkLastChar = ".*" + chrRegex + "$";
 	String text = null;
 	if (textArea.getSelectedText() != null) {
 		text = textArea.getSelectedText();
@@ -56,6 +57,7 @@ void beautifyTextTable(separator) {
 	ArrayList column_widths = new ArrayList();
 	for (int i=0; i<lines.length; i++) {
 		String line = lines[i];
+		if (line.matches(checkLastChar)) { line += ' '; } // if lastchar is separator, add space to avoid line.split error
 		String[] cols = line.split(chrRegex);
 		if (i == 0) {
 			firstLineColumns = cols.length;
